@@ -18,12 +18,22 @@ app.engine('handlebars', handlebars.engine({
 }))
 
 app.set('view engine', 'handlebars')
-    
+
+app.set('views', './views')
+
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get('/', (req, res) => res.send('Bem vindo ao servidor'))
+app.get('/', (req, res) => { 
+    console.log(req.params.nome)
+    var nome = 'Dennis Lindo da Silva'
+    res.render('admin/index', { nome: nome, dados: { empresa: 'teste empresa'} })
+})
+
+app.get('/contato', (_, res) => {
+    res.render('admin/contato')
+})
 
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log('listen on port: 3000')
 })

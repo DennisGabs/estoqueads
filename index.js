@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url'
 import handlebars from 'express-handlebars'
 import Handlebars from "handlebars"
 import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access"
+import bodyParser from "body-parser"
 
 const port = 3000
 
@@ -21,10 +22,13 @@ app.set('view engine', 'handlebars')
 
 app.set('views', './views')
 
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => { 
-    console.log(req.params.nome)
+    console.log(req.params)
     var nome = 'Dennis Lindo da Silva'
     res.render('admin/index', { nome: nome, dados: { empresa: 'teste empresa'} })
 })
@@ -33,6 +37,21 @@ app.get('/contato', (_, res) => {
     res.render('admin/contato')
 })
 
+app.get('/cadastro', (req, res) => {
+    res.render('admin/cadastro')
+})
+
+
+app.post('/cadastro', (req, res) => {
+    var produto = {
+        descricao: req.body.descricao,
+        estoque: req.body.estoque,
+        preco: req.body.preco,
+        status: 1,
+        foto: '/img/semfoto.png'
+    }
+    res.render('produto/detalhe', { produto: produto})
+})
 
 app.listen(port, () => {
     console.log('listen on port: 3000')

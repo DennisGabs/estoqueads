@@ -1,0 +1,20 @@
+<div class="col-md-6 mx-auto">
+    <table class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>DESCRIÇÃO</th>
+            <th>PREÇO</th>
+            <th>ESTOQUE</th>
+        </thead>
+        <tbody>
+            {{#each produtos}}
+                <tr>
+                    <th scope="row">{{this.id}}</th>
+                    <td>{{this.descricao}}</td>
+                    <td>{{this.preco}}</td>
+                    <td>{{this.estoque}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

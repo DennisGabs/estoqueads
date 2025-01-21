@@ -41,16 +41,40 @@ app.get('/cadastro', (req, res) => {
     res.render('admin/cadastro')
 })
 
+app.get('/produtos', (req, res) => {
+    var produtos = [
+        {
+            id: 22,
+            descricao: 'Adaptador VGA',
+            preco: 20.5,
+            estoque: 10
+        },
+        {
+            id: 23,
+            descricao: 'Computador Massa',
+            preco: 2000.0,
+            estoque: 200
+        }
+    ]
+
+    res.render('produtos/index', { produtos: produtos })
+})
+
+
+import produto from './routes/produto.js'
+app.use('/produtos', produto)
+
 
 app.post('/cadastro', (req, res) => {
     var produto = {
+        nome: req.body.nome,
         descricao: req.body.descricao,
         estoque: req.body.estoque,
         preco: req.body.preco,
         status: 1,
         foto: '/img/semfoto.png'
     }
-    res.render('produto/detalhe', { produto: produto})
+    res.render('produtos/detalhe', { produto: produto})
 })
 
 app.listen(port, () => {

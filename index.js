@@ -43,8 +43,9 @@ app.get('/cadastro', (req, res) => {
 
 
 import produto from './routes/produto.js'
+import pessoa from "./routes/pessoa.js"
 app.use('/produtos', produto)
-
+app.use('/pessoas', pessoa)
 
 app.post('/cadastro', (req, res) => {
     var produto = {

@@ -1,0 +1,19 @@
+<a href="pessoas/cadastrar">CADASTRAR</a>
+
+<table>
+    <tr>
+        <th>CPF</th>
+        <th>NOME</th>
+        <th>EMAIL</th>
+        <th>TELEFONE</th>
+    </tr>
+
+    {{#each pessoas}}
+        <tr>
+            <td>{{cpf}}</td>
+            <td>{{nome}}</td>
+            <td>{{email}}</td>
+            <td>{{telefone}}</td>
+        </tr>
+    {{/each}}
+</table>

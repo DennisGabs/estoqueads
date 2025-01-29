@@ -1,0 +1,31 @@
+<form method="post" action="/usuarios/cadastrar">
+    <div>
+        <label for="username">username </label>
+        <input type="text" class="form-control"  name="username">
+    </div>
+
+    <div>
+        <label for="senha" class="form-label">senha</label>
+        <input type="text" class="form-control"  name="senha">
+    </div>
+
+    <div>
+        <label for="categoria">categoria</label>
+        <input type="text" class="form-control"  name="categoria">
+    </div>
+
+    <div>
+        <label for="status">status</label>
+        <input type="text" class="form-control"  name="status">
+    </div>
+
+    <div class="my-3">
+        <select name="pessoa_id" id="" class="form-select">
+            {{#each pessoas}}
+                <option value="{{id}}">{{nome}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">CADASTRAR</button>
+</form>

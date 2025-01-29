@@ -1,23 +1,21 @@
 <form method="post" action="/usuarios/salvar">
     <div>
         <label for="username">username </label>
-        <input type="text" class="form-control"  name="username">
+        <input type="text" class="form-control"  name="username" required>
     </div>
 
     <div>
         <label for="senha" class="form-label">senha</label>
-        <input type="text" class="form-control"  name="senha">
+        <input type="text" class="form-control"  name="senha" required>
     </div>
 
     <div>
         <label for="categoria">categoria</label>
-        <input type="text" class="form-control"  name="categoria">
+        <select name="categoria" class="form-select">
+            <option value="1">ADMIN</option>
+        </select>
     </div>
 
-    <div>
-        <label for="status">status</label>
-        <input type="text" class="form-control"  name="status">
-    </div>
 
     <div class="my-3">
         <select name="pessoa_id" id="" class="form-select">

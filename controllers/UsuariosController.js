@@ -17,7 +17,7 @@ class UsuariosController {
         }
         
         Usuario.create(usuario).then(() => {
-            res.redirect('/produtos/lista')
+            res.redirect('/')
         })
     }
 }

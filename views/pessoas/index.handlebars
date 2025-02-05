@@ -6,6 +6,7 @@
         <th>NOME</th>
         <th>EMAIL</th>
         <th>TELEFONE</th>
+        <th>PERFIL</th>
     </tr>
 
     {{#each pessoas}}
@@ -14,6 +15,9 @@
             <td>{{nome}}</td>
             <td>{{email}}</td>
             <td>{{telefone}}</td>
+            <td>
+                <a href="/pessoas/perfil?id={{id}}" class="btn btn-primary btn-sm">Ver</a>
+            </td>
         </tr>
     {{/each}}
 </table>
